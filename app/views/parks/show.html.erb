@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @park.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @park.address %>
+</p>
+
+<p>
+  <strong>Postalcode:</strong>
+  <%= @park.postalcode %>
+</p>
+
+<p>
+  <strong>Imgageurl:</strong>
+  <%= @park.imgageurl %>
+</p>
+
+<p>
+  <strong>Cleanliness:</strong>
+  <%= @park.cleanliness %>
+</p>
+
+<p>
+  <strong>Welllit:</strong>
+  <%= @park.welllit %>
+</p>
+
+<%= link_to 'Edit', edit_park_path(@park) %> |
+<%= link_to 'Back', parks_path %>
