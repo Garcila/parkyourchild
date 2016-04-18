@@ -13,3 +13,6 @@ doc.css('Location').each do |park|
 		Facility.create(:name => facility.css('FacilityName').inner_text, :displayname => facility.css('FacilityDisplayName').inner_text, :tofacilityid => facility.css('FacilityID').inner_text, :park_id => @park.id)
 	end
 end
+
+
+

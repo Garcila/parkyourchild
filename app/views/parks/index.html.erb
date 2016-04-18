@@ -38,6 +38,11 @@
     </div>
     <div id="map"></div>
     <script>
+
+
+
+
+
       // var postal = [
       // <% @parks.map do |pc| %>
       // "<%= pc.address %>",
@@ -51,34 +56,48 @@
         });
         var geocoder = new google.maps.Geocoder();
 
-      i = 0
-      <% @parks.map do |address| %>
-      setTimeout(function(){
-      geocodeAddress(geocoder,map,"<%= address.address %> 'Toronto'",console.log(address.address));
-      }, 200*i++);
-      <% end %>
+      // i = 0
+      // <% @parks.each do |address| %>
+      // setTimeout(function(){
+      // geocodeAddress(geocoder,map,"<%= address.address %> 'Toronto'",console.log(address.address));
+      // }, 200*i++);
+      // <% end %>
 
-        document.getElementById('submit').addEventListener('click', function() {
+
+      document.getElementById('submit').addEventListener('click', function() {
           var address = document.getElementById('address').value;
-          geocodeAddress(geocoder, map, address);
+          // geocodeAddress(geocoder, map, address);
+          createMarkers(map);
         });
       }
 
-      function geocodeAddress(geocoder, resultsMap, address) {
-        geocoder.geocode({'address': address}, function(results, status) {
-          if (status === google.maps.GeocoderStatus.OK) {
-            resultsMap.setCenter(results[0].geometry.location);
-            var marker = new google.maps.Marker({
-              map: resultsMap,
-              position: results[0].geometry.location
-            });
+      // function geocodeAddress(geocoder, resultsMap, address) {
+      //   geocoder.geocode({'address': address}, function(results, status) {
+      //     if (status === google.maps.GeocoderStatus.OK) {
+      //       resultsMap.setCenter(results[0].geometry.location);
+      //       var marker = new google.maps.Marker({
+      //         map: resultsMap,
+      //         position: results[0].geometry.location
+      //       });
 
-            console.log(address, results[0].geometry.location.lat(), results[0].geometry.location.lng())
-          } else {
-            alert('Geocode was not successful for the following reason: ' + status);
+      //       console.log(address, results[0].geometry.location.lat(), results[0].geometry.location.lng())
+      //     } else {
+      //       alert('Geocode was not successful for the following reason: ' + status);
+      //     }
+      //   });
+
+          function createMarkers(map) {
+              <% Park.all.where.not(lat: nil).each do |park| %>
+                var marker = new google.maps.Marker({
+                map: map,
+                position: {
+                  lat: <%= park.lat %>,
+                  lng: <%= park.lng %>
+                  }
+                });
+              <% end -%>
           }
-        });
-      }
+
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOXLByKziSlHAOD4QCSxXgBuFbi_ImZfU&callback=initMap">
