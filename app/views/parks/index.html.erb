@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Geocoding service</title>
@@ -30,14 +30,14 @@
 
     </style>
   </head>
-  <body>
+  <body> -->
 
     <!-- <div id="floating-panel">
       <input id="address" type="textbox" value="Toronto">
       <input id="submit" type="button" value="Geocode">
     </div> -->
-    <div id="map"></div>
-    <script>
+    <!-- <div id="map"></div> -->
+<!--     <script>
 
 
 
@@ -49,12 +49,12 @@
       // <% end %>
       // ];
 
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 10,
-          center: {lat: 43.644747, lng: -79.395338}
-        });
-        var geocoder = new google.maps.Geocoder();
+      // function initMap() {
+      //   var map = new google.maps.Map(document.getElementById('map'), {
+      //     zoom: 10,
+      //     center: {lat: 43.644747, lng: -79.395338}
+      //   });
+      //   var geocoder = new google.maps.Geocoder();
 
       // i = 0
       // <% @parks.each do |address| %>
@@ -63,12 +63,12 @@
       // }, 200*i++);
       // <% end %>
 
-      $(document).ready(function() {
-          // var address = document.getElementById('on').value;
-          // geocodeAddress(geocoder, map, address);
-          createMarkers(map);
-        });
-      }
+      // $(document).ready(function() {
+      //     // var address = document.getElementById('on').value;
+      //     // geocodeAddress(geocoder, map, address);
+      //     createMarkers(map);
+      //   });
+      // }
 
 
 
@@ -95,17 +95,17 @@
       //     }
       //   });
 
-          function createMarkers(map) {
-              <% Park.all.where.not(lat: nil).each do |park| %>
-                var marker = new google.maps.Marker({
-                map: map,
-                position: {
-                  lat: <%= park.lat %>,
-                  lng: <%= park.lng %>
-                  }
-                });
-              <% end -%>
-          }
+          // function createMarkers(map) {
+          //     <% Park.all.where.not(lat: nil).each do |park| %>
+          //       var marker = new google.maps.Marker({
+          //       map: map,
+          //       position: {
+          //         lat: <%= park.lat %>,
+          //         lng: <%= park.lng %>
+          //         }
+          //       });
+          //     <% end -%>
+          // }
 
     </script>
     <script async defer
@@ -113,10 +113,10 @@
     </script>
   </body>
 </html>
+ -->
 
 
 
-<!-- 
 
 
 
@@ -161,4 +161,3 @@
 <%= link_to 'New Park', new_park_path %>
 
 
- -->
