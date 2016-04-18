@@ -1,3 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Geocoding service</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 70%;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="floating-panel">
+      <input id="address" type="textbox" value="Toronto">
+      <input id="submit" type="button" value="Geocode">
+    </div>
+    <div id="map"></div>
+    <script>
+      // var postal = [
+      // <% @parks.map do |pc| %>
+      // "<%= pc.address %>",
+      // <% end %>
+      // ];
+
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: {lat: 43.644747, lng: -79.395338}
+        });
+        var geocoder = new google.maps.Geocoder();
+
+      i = 0
+      <% @parks.map do |address| %>
+      setTimeout(function(){
+      geocodeAddress(geocoder,map,"<%= address.address %> 'Toronto'",console.log(address.address));
+      }, 200*i++);
+      <% end %>
+
+        document.getElementById('submit').addEventListener('click', function() {
+          var address = document.getElementById('address').value;
+          geocodeAddress(geocoder, map, address);
+        });
+      }
+
+      function geocodeAddress(geocoder, resultsMap, address) {
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === google.maps.GeocoderStatus.OK) {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+
+            console.log(address, results[0].geometry.location.lat(), results[0].geometry.location.lng())
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOXLByKziSlHAOD4QCSxXgBuFbi_ImZfU&callback=initMap">
+    </script>
+  </body>
+</html>
+
+
+
+<!-- 
+
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Parks</h1>
@@ -35,3 +131,6 @@
 <br>
 
 <%= link_to 'New Park', new_park_path %>
+
+
+ -->
