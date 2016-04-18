@@ -4,10 +4,35 @@
   <title>Parkyourchild</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="home.scss">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="home.scss"> -->
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 70%;
+      }
+      #floating-panel {
+        position: absolute;
+        top: 10px;
+        left: 25%;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+      }
+
+    </style>
 
 </head>
 <body>
@@ -25,6 +50,9 @@
         zoom: 15,
       });
       var infoWindow = new google.maps.InfoWindow({map: map});
+      var geocoder = new google.maps.Geocoder();
+
+      createMarkers(map);
 
       // Try HTML5 geolocation.
       if (navigator.geolocation) {
@@ -52,11 +80,32 @@
                             'Error: The Geolocation service failed.' :
                             'Error: Your browser doesn\'t support geolocation.');
     }
+
+    $(document).ready(function() {
+      // var address = document.getElementById('address').value;
+      
+      });
+
+    function createMarkers(map) {
+      <% Park.all.where.not(lat: nil).each do |park| %>
+        var marker = new google.maps.Marker({
+        map: map,
+        position: {
+          lat: <%= park.lat %>,
+          lng: <%= park.lng %>
+          }
+        });
+      <% end -%>
+     }
+
   </script>
   <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOXLByKziSlHAOD4QCSxXgBuFbi_ImZfU&callback=initMap">
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOXLByKziSlHAOD4QCSxXgBuFbi_ImZfU&callback=initMap">
   </script>
 <!-- to here map related -->	
 <%= yield %>
 </body>
 </html>
+
+
+

@@ -32,10 +32,10 @@
   </head>
   <body>
 
-    <div id="floating-panel">
+    <!-- <div id="floating-panel">
       <input id="address" type="textbox" value="Toronto">
       <input id="submit" type="button" value="Geocode">
-    </div>
+    </div> -->
     <div id="map"></div>
     <script>
 
@@ -63,13 +63,22 @@
       // }, 200*i++);
       // <% end %>
 
-
-      document.getElementById('submit').addEventListener('click', function() {
-          var address = document.getElementById('address').value;
+      $(document).ready(function() {
+          // var address = document.getElementById('on').value;
           // geocodeAddress(geocoder, map, address);
           createMarkers(map);
         });
       }
+
+
+
+
+      // document.getElementById('submit').addEventListener('click', function() {
+      //     var address = document.getElementById('address').value;
+      //     // geocodeAddress(geocoder, map, address);
+      //     createMarkers(map);
+      //   });
+      // }
 
       // function geocodeAddress(geocoder, resultsMap, address) {
       //   geocoder.geocode({'address': address}, function(results, status) {
