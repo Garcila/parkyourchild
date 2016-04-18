@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160414183429) do
+ActiveRecord::Schema.define(version: 20160417153846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,18 +27,27 @@ ActiveRecord::Schema.define(version: 20160414183429) do
 
   add_index "facilities", ["park_id"], name: "index_facilities_on_park_id", using: :btree
 
+  create_table "locations", force: :cascade do |t|
+    t.string   "name",       default: ""
+    t.string   "address",    default: ""
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
   create_table "parks", force: :cascade do |t|
-    t.string   "name",        default: ""
-    t.string   "address",     default: ""
-    t.string   "postalcode",  default: ""
-    t.string   "imgageurl",   default: ""
+    t.string   "name",                                 default: ""
+    t.string   "address",                              default: ""
+    t.string   "postalcode",                           default: ""
+    t.string   "imgageurl",                            default: ""
     t.boolean  "cleanliness"
     t.boolean  "welllit"
     t.boolean  "parking"
     t.integer  "toparkid"
     t.integer  "phonenumber"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.decimal  "lat",         precision: 10, scale: 6
+    t.decimal  "lng",         precision: 10, scale: 6
   end
 
   create_table "parks_users", id: false, force: :cascade do |t|
