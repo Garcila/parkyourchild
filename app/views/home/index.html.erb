@@ -104,6 +104,25 @@
   </script>
 <!-- to here map related -->	
 <%= yield %>
+"--------------------------------------------------------------------------------------------------------------------------------------------------------------"
+<!-- <nav class="navbar navbar-light bg-faded">
+  
+  <div class="form-inline pull-xs-right">
+    <form method="GET" action='/search'>
+      <input class="form-control" type="text" placeholder="Search" name="query">
+      <button class="btn btn-success-outline" type="submit">Search</button> -->
+
+  <% form_tag parks_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+
+<% end %>
+    </form>
+  </div>
+</nav>
+
 </body>
 </html>
 

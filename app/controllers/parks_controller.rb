@@ -4,7 +4,13 @@ class ParksController < ApplicationController
   # GET /parks
   # GET /parks.json
   def index
-    @parks = Park.all
+    @parks = Park.all 
+    if params[:search]
+      # @parks = Park.find(:name, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+      @parks = Park.where("lower(name) LIKE ?", "%"+params[:search]+"%")
+    else
+      @parks = Park.find(:name)
+    end 
   end
 
   # GET /parks/1
