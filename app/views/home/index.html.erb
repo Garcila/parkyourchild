@@ -10,13 +10,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <style>
+
       html, body {
         height: 100%;
         margin: 0;
         padding: 0;
+        background-color: #123366;
+
       }
       #map {
-        height: 70%;
+        height: 100%;
       }
       #floating-panel {
         position: absolute;
@@ -44,33 +47,89 @@
     // failed.", it means you probably did not give permission for the browser to
     // locate you.
 
-    function initMap() {
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: -34.397, lng: 150.644},
-        zoom: 15,
+  function initMap() {
+
+    var parkMap = new google.maps.StyledMapType([
+          {"stylers": [
+          { "weight": 2.6 },
+          { "visibility": "on" },
+          { "saturation": -9 },
+          { "hue": "#0008ff" }
+        ]
+      },{
+        "featureType": "poi.park",
+        "elementType": "geometry",
+        "stylers": [
+          { "saturation": 26 },
+          { "hue": "#00ff09" },
+          { "lightness": -19 },
+          { "gamma": 0.98 }
+        ]
+      },{
+        "featureType": "road.highway",
+        "stylers": [
+          { "hue": "#0077ff" }
+        ]
+      },{
+        "featureType": "transit.station",
+        "stylers": [
+          { "hue": "#ff1a00" },
+          { "visibility": "simplified" }
+        ]
+      },{
+        "featureType": "poi.sports_complex",
+        "stylers": [
+          { "gamma": 0.83 },
+          { "saturation": 45 },
+          { "lightness": -41 },
+          { "hue": "#00ff2b" }
+        ]
+      },{
+        "featureType": "road.arterial",
+        "stylers": [
+          { "visibility": "simplified" },
+          { "saturation": 48 },
+          { "weight": 1.9 },
+          { "hue": "#007fff" },
+          { "lightness": -26 }
+        ]
+      },{
+        "featureType": "transit.line"  }
+    ], {name: 'US Road Atlas'});
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: -34.397, lng: 150.644},
+      zoom: 15,
+      mapTypeControlOptions: {
+          mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'parkmappark']
+        }
+    });
+
+    map.mapTypes.set('parkmappark', parkMap);
+      map.setMapTypeId('parkmappark');
+
+    var infoWindow = new google.maps.InfoWindow({map: map});
+    var geocoder = new google.maps.Geocoder();
+
+    createMarkers(map);
+
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('Prrrrrrrrrrrrr.');
+        map.setCenter(pos);
+      }, function() {
+        handleLocationError(true, infoWindow, map.getCenter());
       });
-      var infoWindow = new google.maps.InfoWindow({map: map});
-      var geocoder = new google.maps.Geocoder();
-
-      createMarkers(map);
-
-      // Try HTML5 geolocation.
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-
-          infoWindow.setPosition(pos);
-          infoWindow.setContent('Location found.');
-          map.setCenter(pos);
-        }, function() {
-          handleLocationError(true, infoWindow, map.getCenter());
-        });
-      } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
       }
     }
 
@@ -81,22 +140,21 @@
                             'Error: Your browser doesn\'t support geolocation.');
     }
 
-    $(document).ready(function() {
-      // var address = document.getElementById('address').value;
-      
-      });
+    // var image = 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRIbeLU0p2tOKxUHy_vf8f3B_GdRWX8Kvwq_XB_qPEE_PY7mggYOw';
 
     function createMarkers(map) {
       <% Park.all.where.not(lat: nil).each do |park| %>
         var marker = new google.maps.Marker({
         map: map,
+        // icon: tree,
+        title: "<%= park.name %>",
         position: {
           lat: <%= park.lat %>,
           lng: <%= park.lng %>
           }
-        });
+         });
       <% end -%>
-     }
+  }
 
   </script>
   <script async defer
