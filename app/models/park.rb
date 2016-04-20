@@ -15,4 +15,14 @@ class Park < ActiveRecord::Base
     self.lat, self.lng = geo.lat, geo.lng if geo.success
   end
 
+	def facility_name
+		csv = ""
+		facilities.each do |facility|
+	  	csv += facility.name
+		end
+		csv
+	end
+
 end
+
+
