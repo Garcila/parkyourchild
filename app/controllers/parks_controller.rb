@@ -4,12 +4,37 @@ class ParksController < ApplicationController
   # GET /parks
   # GET /parks.json
   def index
-    @parks = Park.all 
-    if params[:search]
-      # @parks = Park.find(:name, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
-      @parks = Park.where("lower(name) LIKE ?", "%"+params[:search]+"%")
-    else
-      @parks = Park.find(:name)
+    @parks = Park.all
+
+    # if params[:search_displayname] != ""
+    #   @parks = @parks.search(params[:search_displayname])
+    # end 
+
+    # if params[:track]
+    #   puts "hello"
+    #   @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Track%")
+    # end 
+
+    if params[:track] != "" 
+      case params[:track]
+        when "Track" 
+          @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Track%")
+        when "Washroom"
+          @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Washroom%")
+        when "Rink"
+          @parks =parks.joins(:facilities).where("facilities.displayname like ?", "%Rink%")
+        when "Sports Area"
+          @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Sport Field%")
+        when "Pool"
+          @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Pool%")
+        when "Playground"
+          @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Playground%")
+        when "Dog Playpark"
+          @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Dogs Off-Leash Area%")
+        else 
+          puts "Where did it go?"
+
+      end
     end 
   end
 

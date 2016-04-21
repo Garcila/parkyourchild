@@ -2,9 +2,16 @@ class Park < ActiveRecord::Base
 
 	acts_as_mappable
 	before_validation :geocode_address, :only => [:create, :update]
+  # geocode_ip_address 
 
 	has_many :users
 	has_many :facilities
+
+  def self.search(search)
+
+    joins(:facilities).where("facilities.displayname ILIKE ? ", search)
+    # joins(:facilities).where("facilities.name LIKE ? ", search)
+  end 
 
 	private
 

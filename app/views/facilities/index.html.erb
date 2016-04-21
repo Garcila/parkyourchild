@@ -1,6 +1,18 @@
 <p id="notice"><%= notice %></p>
 
+<form action="/facilities" method="get" >
+<input id="search" name="search" type="text" /> 
+<input name="commit" type="submit" value="Search"/> 
+
 <h1>Listing Facilities</h1>
+
+  <% form_tag facilities_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+
+<% end %>
 
 <table>
   <thead>
