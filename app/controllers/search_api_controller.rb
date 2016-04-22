@@ -1,9 +1,7 @@
-class HomeController < ApplicationController
+class SearchApiController < ApplicationController
 
-	def index
+	def search
 		@parks = Park.all
-		# render json: { foo: 'bar' }
-
 		if params[:track] != "" 
       case params[:track]
         when "Track" 
@@ -21,15 +19,10 @@ class HomeController < ApplicationController
         when "Dog Playpark"
           @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Dogs Off-Leash Area%")
         else 
-          puts "Where did it go?"
+          @parks
       end
     end
+		render json: @parks
 	end
 
-
-	
 end
-
-# fetch('http://localhost:3000')
-# .then(res => res.json())
-# .then(data => console.log(data))

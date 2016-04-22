@@ -1,5 +1,27 @@
 <div id="map"></div>
 
+</br>
+
+  <%= form_tag(parks_path, :method => 'get') do %>
+       <%= search_field_tag :search_displayname, params[:search], placeholder: "Search For Facilities" %>
+       <%= submit_tag "Search" %>
+   <% end %>
+
+   <%= form_tag parks_path, method: :get, id: 'form_facilities' do %>
+      <%= label_tag "Track" %> 
+      <%= check_box_tag :track, "Track" %>
+      <%= label_tag "Washroom" %> 
+      <%= check_box_tag :track, "Washroom" %>
+      <%= label_tag "Sports Area" %> 
+      <%= check_box_tag :track, "Sports Area" %>
+      <%= label_tag "Pool" %> 
+      <%= check_box_tag :track, "Pool" %>
+      <%= label_tag "Dog Park" %> 
+      <%= check_box_tag :track, "Dog Playpark" %>
+      <%= label_tag "Playground" %> 
+      <%= check_box_tag :track, "Playground" %>
+   <% end %>
+			
 <script>
   window.data = <%= @parks.to_json.html_safe %>;
   function initMap() {
@@ -8,7 +30,6 @@
   $(document).ready(function() {
     
   });
-
 </script>
 
 <script async defer
