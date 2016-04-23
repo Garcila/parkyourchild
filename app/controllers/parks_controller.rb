@@ -33,7 +33,6 @@ class ParksController < ApplicationController
           @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Dogs Off-Leash Area%")
         else 
           puts "Where did it go?"
-
       end
     end 
   end
