@@ -18,8 +18,8 @@ class SearchApiController < ApplicationController
           @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Playground%")
         when "Dog Playpark"
           @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Dogs Off-Leash Area%")
-        else 
-          @parks
+        else
+          puts "monkey's brain"
       end
     end
 		render json: @parks

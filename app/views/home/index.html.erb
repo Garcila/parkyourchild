@@ -1,38 +1,57 @@
-<div id="map"></div>
 
-</br>
+	<div id="form_fac">
+	   <%= form_tag parks_path, method: :get, id:"form_items" do %>
+			<p>	
+				<%= check_box_tag :track, "track", false, id: "Track", class:'checkbox_filter' %>		
+	   		<%= label_tag "Track", nil, class: "label_filter" %> 
+	    </p>
+	    <p>
+				<%= check_box_tag :track, "Washroom", false, id: "Washroom", class:'checkbox_filter' %>
+	      <%= label_tag "Washroom", nil, class: "label_filter" %> 
+	    </p>
+	    <p>
+				<%= check_box_tag :track, "Sports Area", false, id: "Sports, class:'checkbox_filter'" %>
+	      <%= label_tag "Sports" , nil, class: "label_filter" %> 
+	    </p>
+	    <p>
+				<%= check_box_tag :track, "Pool", false, id: "Pool", class:'checkbox_filter' %>
+	      <%= label_tag "Pool", nil, class: "label_filter" %> 
+	    </p>
+	    <p>
+				<%= check_box_tag :track, "Dog Playpark", false, id: "Dog, class:'checkbox_filter'" %>
+	      <%= label_tag "Dog" , nil, class: "label_filter" %> 
+	     </p>
+	     <p> 
+				<%= check_box_tag :track, "Playground", false, id: "Playground", class:'checkbox_filter' %>
+	      <%= label_tag "Playground", nil, class: "label_filter" %>
+			</p>
+	   <% end %>
+</div>	
 
-  <%= form_tag(parks_path, :method => 'get') do %>
-       <%= search_field_tag :search_displayname, params[:search], placeholder: "Search For Facilities" %>
-       <%= submit_tag "Search" %>
-   <% end %>
+<nav id="navpos">
+	Park Your Child
+</nav>
 
-   <%= form_tag parks_path, method: :get, id: 'form_facilities' do %>
-      <%= label_tag "Track" %> 
-      <%= check_box_tag :track, "Track" %>
-      <%= label_tag "Washroom" %> 
-      <%= check_box_tag :track, "Washroom" %>
-      <%= label_tag "Sports Area" %> 
-      <%= check_box_tag :track, "Sports Area" %>
-      <%= label_tag "Pool" %> 
-      <%= check_box_tag :track, "Pool" %>
-      <%= label_tag "Dog Park" %> 
-      <%= check_box_tag :track, "Dog Playpark" %>
-      <%= label_tag "Playground" %> 
-      <%= check_box_tag :track, "Playground" %>
-   <% end %>
-			
-<script>
-  window.data = <%= @parks.to_json.html_safe %>;
-  function initMap() {
-    parkMap.initialize('map', data);
-  }
-  $(document).ready(function() {
-    
-  });
-</script>
 
-<script async defer
-src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOXLByKziSlHAOD4QCSxXgBuFbi_ImZfU&callback=initMap">
-</script>
+	<div id="map"></div>
+
+
+	  <!-- <%= form_tag(parks_path, :method => 'get') do %> -->
+	       <!-- <%= search_field_tag :search_displayname, params[:search], placeholder: "Search For Facilities" %> -->
+	       <!-- <%= submit_tag "Search" %> -->
+	   <!-- <% end %> -->
+
+	<script>
+	  window.data = <%= @parks.to_json.html_safe %>;
+	  function initMap() {
+	    parkMap.initialize('map', data);
+	  }
+	  $(document).ready(function() {
+	    
+	  });
+	</script>
+
+	<script async defer
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOXLByKziSlHAOD4QCSxXgBuFbi_ImZfU&callback=initMap">
+	</script>
 

@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+#page_footer_id {
+	background-color: #2E8C2E;;
+}

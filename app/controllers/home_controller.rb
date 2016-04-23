@@ -11,17 +11,17 @@ class HomeController < ApplicationController
         when "Washroom"
           @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Washroom%")
         when "Rink"
-          @parks =parks.joins(:facilities).where("facilities.displayname like ?", "%Rink%")
-        when "Sports Area"
+          @parks =@parks.joins(:facilities).where("facilities.displayname like ?", "%Rink%")
+        when "Sports"
           @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Sport Field%")
         when "Pool"
           @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Pool%")
         when "Playground"
           @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Playground%")
-        when "Dog Playpark"
+        when "Dog"
           @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Dogs Off-Leash Area%")
         else 
-          puts "Where did it go?"
+          @parks
       end
     end
 	end

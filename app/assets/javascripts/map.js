@@ -52,10 +52,8 @@
 	        "featureType": "transit.line"  }
 	    ];
 
-		var image = 'http://i.imgur.com/bXfWz1t.png';
+		var image = 'http://i.imgur.com/L4x1Fie.png';
 
-
-		
 		function createMarkers(data, map) {
 			data.forEach(function(dataPoint) {
 	  		if(dataPoint.lat !== null) {
@@ -69,21 +67,9 @@
 		  					lng: parseFloat(dataPoint.lng)
 		  				}
 		  			}
-
 	  			));
-
 	  		}
-	  		// google.maps.event.addListener(markers, 'click', function(event) {
-     //      infowindow.setContent(this.html);
-     //      infowindow.setPosition(this.position);
-     //      infowindow.open(map, this);
-
-	  	// });
-	  	// var infowindow = new google.maps.InfoWindow({map: map});
-	  		  				  		
-
       });
-	  	
 		}
 
 		return {
@@ -106,6 +92,7 @@
 				var x = new google.maps.StyledMapType(mapStyles, {name: 'PYC'});
 				map.mapTypes.set('parkmappark', x);
 				map.setMapTypeId('parkmappark');
+				
 				createMarkers(data, map);
 
 			  // Try HTML5 geolocation.
@@ -119,15 +106,15 @@
 			  		myPosition.setPosition(pos);
 			  		map.setCenter(pos);
 			  	}, function() {
-			  		handleLocationError(true, infoWindow, map.getCenter());
+			  		handleLocationError(true, infowindow, map.getCenter());
 			  	});
 			  } else {
 			    // Browser doesn't support Geolocation
-			    handleLocationError(false, infoWindow, map.getCenter());
+			    handleLocationError(false, infowindow, map.getCenter());
 			  }
-				function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-					infoWindow.setPosition(pos);
-					infoWindow.setContent(browserHasGeolocation ?
+				function handleLocationError(browserHasGeolocation, infowindow, pos) {
+					infowindow.setPosition(pos);
+					infowindow.setContent(browserHasGeolocation ?
 						'Error: The Geolocation service failed.' :
 						'Error: Your browser doesn\'t support geolocation.');
 				}
@@ -135,20 +122,18 @@
 			 		$.ajax( {
 			 			url: '/search',
 			 			method: 'POST',
-			 			data: { track: this.value },
+			 			data: { track: this.checked ? this.value : "" },
 			 			success: function(json) {
 			 				markers.forEach (function(marker) {
 			 					marker.setMap(null);
 			 				});
-
-			 				createMarkers(json, map, markers)
+			 				createMarkers(json, map)
 			 			}
-
 			 		})
-			 		
 		  	});
-		  	
 		  }
-
 		}
 	})();
+
+
+	
