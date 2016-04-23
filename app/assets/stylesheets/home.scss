@@ -48,18 +48,18 @@ html, body {
 //   margin-left: 92%;
 //   margin-top: 50vh;
 // }
-#form_fac {
-  position: absolute;
-  padding-left: 100px;
-  margin-left: 0%;
-  margin-top: 80vh;
-  background-color: rgba(0, 128, 0, 0.66);
-  z-index: 100;
-  border-radius: 0;
-  width: 100%;
-  height: 5vh;
-  color: white;
-}
+// #form_fac {
+//   position: absolute;
+//   padding-left: 100px;
+//   margin-left: 0%;
+//   margin-top: 80vh;
+//   background-color: rgba(0, 128, 0, 0.66);
+//   z-index: 100;
+//   border-radius: 0;
+//   width: 100%;
+//   height: 5vh;
+//   color: white;
+// }
 
 #Track {
   color: white;
@@ -75,50 +75,66 @@ main {
   flex: 1 0 auto;
 }
 
-#nav-cool {
-  position: absolute;
-  margin-right: -800px;
-  margin-top: -100px;
-}
-
 .label_filter {
   color: #ffffff; 
 }
 
 #form_fac {
-    position: absolute;
-    padding-left: 10px;
-    margin-left: 80%;
-    margin-top: 80vh;
-    background-color: rgba(53, 45, 45, 0.8);
-    z-index: 100;
-    border-radius: 2%;
-    width: 10%;
-    height: 230px;
-    color: white;
-    top: -40vh;
+  position: absolute;
+  padding-left: 10px;
+  margin-left: 80%;
+  margin-top: 80vh;
+  background-color: rgba(53, 45, 45, 0.8);
+  z-index: 100;
+  border-radius: 2%;
+  width: 10%;
+  height: 230px;
+  color: white;
+  top: -40vh;
+  border-color: rgba(60, 118, 61, 0.72);
+  border-style: solid;
+  border-top-width: thin;
+  padding-top: 10px;
 }
 
-#track-check {
-    position: absolute;
-    border-radius: 50%;
-    background-color: red;
-    height: 80px;
-    width: 80px;
-    margin-top: -300px;
-    margin-left: 600px;
-}
+// #track-check {
+//   position: absolute;
+//   border-radius: 50%;
+//   background-color: red;
+//   height: 80px;
+//   width: 80px;
+//   margin-top: -300px;
+//   margin-left: 600px;
+// }
 
 #navpos {
-    position: absolute;
-    top: 3.5vh;
-    width: 100%;
-    z-index: 10;
-    background-color: rgba(21, 124, 212, 0.89);
-    height: 6.5vh;
-    font-size: -webkit-xxx-large;
-    color: #ffffff;
-    font-weight: bold;
-    padding-left: 30px;
-    font-family: sans-serif;
+  position: absolute;
+  top: 3.5vh;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(21, 124, 212, 0.89);
+  height: 6.5vh;
+  font-size: -webkit-xxx-large;
+  color: #ffffff;
+  font-weight: bold;
+  padding-left: 30px;
+  font-family: sans-serif;
+
+}
+
+#greenland {
+  background-color: #4FA24F;
+  width: 100%;
+  height: 20px;
+}
+
+.navbar-fixed-bottom {
+    border-radius: 0;
+    background: rgb(42, 134, 214);
+    height: 10px;
+}
+
+.container {
+    background: #2D7CC1;
+    color: white;
 }
