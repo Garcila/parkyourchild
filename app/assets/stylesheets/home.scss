@@ -7,7 +7,6 @@ html, body {
   margin: 0;
   padding: 0;
   background-color: #123366;
-
 }
 
 #map {
@@ -84,16 +83,13 @@ main {
   padding-left: 10px;
   margin-left: 80%;
   margin-top: 80vh;
-  background-color: rgba(53, 45, 45, 0.8);
+  background-color: rgba(46, 109, 164, 0.78);
   z-index: 100;
   border-radius: 2%;
   width: 10%;
   height: 230px;
   color: white;
   top: -40vh;
-  border-color: rgba(60, 118, 61, 0.72);
-  border-style: solid;
-  border-top-width: thin;
   padding-top: 10px;
 }
 
@@ -113,7 +109,7 @@ main {
   width: 100%;
   z-index: 10;
   background-color: rgba(21, 124, 212, 0.89);
-  height: 6.5vh;
+  height: 65px;
   font-size: -webkit-xxx-large;
   color: #ffffff;
   font-weight: bold;
@@ -138,3 +134,12 @@ main {
     background: #2D7CC1;
     color: white;
 }
+
+#nav-button {
+  background: #FD0202;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  color: #ffffff;
+}
+

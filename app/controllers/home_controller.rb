@@ -2,7 +2,6 @@ class HomeController < ApplicationController
 
 	def index
 		@parks = Park.all
-		# render json: { foo: 'bar' }
 
 		if params[:track] != "" 
       case params[:track]
@@ -29,7 +28,3 @@ class HomeController < ApplicationController
 
 	
 end
-
-# fetch('http://localhost:3000')
-# .then(res => res.json())
-# .then(data => console.log(data))

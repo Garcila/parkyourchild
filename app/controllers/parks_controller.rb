@@ -5,6 +5,17 @@ class ParksController < ApplicationController
   # GET /parks.json
   def index
     @parks = Park.all
+    # binding.pry
+    if params[:search]
+      @parks = Park.search(params[:search]).order("created_at DESC")
+    # else
+    #   @parks = Park.all.order('created_at DESC')
+    end
+
+    # if params[:search_displayname] != ""
+    #   @parks = @parks.search(params[:search_displayname])
+    # end 
+
   end
 
   # GET /parks/1

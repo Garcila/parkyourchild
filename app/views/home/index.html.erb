@@ -1,16 +1,22 @@
 
 	<div id="form_fac">
 	   <%= form_tag parks_path, method: :get, id:"form_items" do %>
-			<p>	
-				<%= check_box_tag :track, "track", false, id: "Track", class:'checkbox_filter' %>		
+<!-- 	   	<button type="button" id="nav-button" value="Track"></button>
+			<button type="button" id="nav-button" value="Washroom"></button>
+			<button type="button" id="nav-button" value="Sports"></button>
+			<button type="button" id="nav-button" value="Pool"></button>
+			<button type="button" id="nav-button" value="Dogpark"></button>
+			<button type="button" id="nav-button" value="Playground"></button> -->
+	   <p>
+				<%= check_box_tag :track, "Track", false, id: "Track", class:'checkbox_filter' %>		
 	   		<%= label_tag "Track", nil, class: "label_filter" %> 
-	    </p>
+	   	</p>
 	    <p>
 				<%= check_box_tag :track, "Washroom", false, id: "Washroom", class:'checkbox_filter' %>
 	      <%= label_tag "Washroom", nil, class: "label_filter" %> 
 	    </p>
 	    <p>
-				<%= check_box_tag :track, "Sports Area", false, id: "Sports, class:'checkbox_filter'" %>
+				<%= check_box_tag :track, "Sports Area", false, id: "Sports", class:'checkbox_filter' %>
 	      <%= label_tag "Sports" , nil, class: "label_filter" %> 
 	    </p>
 	    <p>
@@ -18,13 +24,13 @@
 	      <%= label_tag "Pool", nil, class: "label_filter" %> 
 	    </p>
 	    <p>
-				<%= check_box_tag :track, "Dog Playpark", false, id: "Dog, class:'checkbox_filter'" %>
+				<%= check_box_tag :track, "Dog Playpark", false, id: "Dog", class:'checkbox_filter' %>
 	      <%= label_tag "Dog" , nil, class: "label_filter" %> 
 	     </p>
 	     <p> 
 				<%= check_box_tag :track, "Playground", false, id: "Playground", class:'checkbox_filter' %>
 	      <%= label_tag "Playground", nil, class: "label_filter" %>
-			</p>
+			</p>			
 	   <% end %>
 </div>	
 
@@ -38,10 +44,7 @@
 	</div>
 
 
-	  <!-- <%= form_tag(parks_path, :method => 'get') do %> -->
-	       <!-- <%= search_field_tag :search_displayname, params[:search], placeholder: "Search For Facilities" %> -->
-	       <!-- <%= submit_tag "Search" %> -->
-	   <!-- <% end %> -->
+
 
 	<script>
 	  window.data = <%= @parks.to_json.html_safe %>;
