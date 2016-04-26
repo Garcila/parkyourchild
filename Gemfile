@@ -29,6 +29,8 @@ gem 'pry'
 
 gem 'roo', '~> 2.3.2'
 
+gem 'json'
+
 
 
 # Use ActiveModel has_secure_password

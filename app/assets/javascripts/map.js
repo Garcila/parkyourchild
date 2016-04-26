@@ -102,12 +102,13 @@ var parkMap = (function () {
     });
 	}
 
+
 	function getDirections(pos, destination) {
 	// Set destination, origin and travel mode.
 	  var request = {
 	    destination: destination,
 	    origin: pos,
-	    travelMode: google.maps.TravelMode.DRIVING
+	    travelMode: google.maps.TravelMode.WALKING
 	  };
 
 	  // Pass the directions request to the directions service.

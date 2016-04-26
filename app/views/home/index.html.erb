@@ -2,17 +2,26 @@
 
 <div id="form_fac">
  <%= form_tag parks_path, method: :get, id:"form_items" do %>
-<!-- 	   	<button type="button" id="nav-button" value="Track"></button>
-	<button type="button" id="nav-button" value="Washroom"></button>
-	<button type="button" id="nav-button" value="Sports"></button>
-	<button type="button" id="nav-button" value="Pool"></button>
-	<button type="button" id="nav-button" value="Dogpark"></button>
-	<button type="button" id="nav-button" value="Playground"></button> -->
 
-  <div class="checkbox-circle">
-		<%= check_box_tag :track, "Track", false, id: "Track", class:'checkbox_filter'%>		
- 		<%= label_tag "Track", nil, class: "label_filter" %> 
- 	</div>
+
+
+
+
+<!--   <div class="block-switch">
+      <input id="toggle-flat" class="toggle toggle-flat" type="checkbox">
+      <label for="toggle-flat"></label>
+      <h4>Flat Switch</h4>
+    </div> -->
+
+    <div class="block-switch">
+      <input id="toggle-flip" class="toggle toggle-flip" type="checkbox" value="Track">
+      <label for="toggle-flip" data-on="Track" data-off="No"></label>
+      <h4>Flip Switch</h4>
+   </div>
+
+
+
+ 
   <div>
 		<%= check_box_tag :track, "Washroom", false, id: "Washroom", class:'checkbox_filter' %>
     <%= label_tag "Washroom", nil, class: "label_filter" %> 
@@ -41,8 +50,28 @@
 </div>	
 
 <nav id="navpos">
+	<div>
+		<div class="white-box" id="white-box"></div>
+		<div class="white-box1" id="white-box1"></div>
+		<div class="white-box2" id="white-box2"></div>
+		<div class="white-box3" id="white-box3"></div>
+		<div class="white-box4" id="white-box4"></div>
+	</div>
 	Park Your Child 
 </nav>
+
+<!-- <nav class="navbar navbar-default">
+ <div class="container-fluid">
+   <div class="navbar-header">
+     <a class="navbar-brand" href="#">
+       <div class = "image">
+       <img alt="Brand" src="/tree.jpg" id="brand"> 
+         <span> Park Your Child</span>
+       </div>
+     </a>
+   </div>
+ </div>
+</nav> -->
 
 
 <div id="map"></div>

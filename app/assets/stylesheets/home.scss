@@ -111,3 +111,161 @@ main {
 #text-bottom {
   text-align: -webkit-center;
 }
+
+img {
+    // image-rendering: auto;
+    max-width: 50vh;
+    position: absolute;
+    margin-top: -32px;
+    margin-left: 100;
+    height: 130px;
+    margin-left: 900px;
+    z-index: 90;
+}
+
+#white-box1 {
+  position: absolute;
+  height: 65px;
+  width: 100px;
+  background-color: rgba(51, 51, 51, 0.13);
+  margin-left: 800px;
+}
+
+#white-box {
+  position: absolute;
+  height: 65px;
+  width: 100px;
+  background-color: rgba(51, 51, 51, 0.24);
+  z-index: -1;
+  margin-left: 900px;
+}
+
+#white-box2 {
+  position: absolute;
+  height: 65px;
+  width: 100px;
+  background-color:  rgba(51, 51, 51, 0.32);
+  margin-left: 1000px;
+}
+
+#white-box3 {
+  position: absolute;
+  height: 65px;
+  width: 100px;
+  background-color:   rgba(51, 51, 51, 0.38);
+  margin-left: 1100px;
+}
+
+#white-box4 {
+  position: absolute;
+  height: 65px;
+  width: 689px;
+  background-color:   rgba(51, 51, 51, 0.34);
+  margin-left: 1200px;
+}
+
+.social1 {
+  height: 40px                            ;
+  margin-top: -22px;
+  margin-left: 1300px;
+}
+
+.social2 {
+  height: 40px                            ;
+  margin-top: -22px;
+  margin-left: 1400px;
+}
+
+.social3 {
+  height: 40px                            ;
+  margin-top: -22px;
+  margin-left: 1200px;
+}
+
+
+
+
+
+
+
+
+
+input.toggle {
+  position: absolute;
+  visibility: hidden;
+}
+
+input.toggle + label {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+input.toggle-flip + label {
+  height: 20px;
+}
+input.toggle-flip + label:before, input.toggle-flip + label:after {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 20px;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+}
+input.toggle-flip + label:before {
+  background-color: #BF2A23;
+  content: attr(data-off);
+  -webkit-transition: -webkit-transform 0.5s;
+  -moz-transition: -moz-transform 0.5s;
+  -o-transition: -o-transform 0.5s;
+  transition: transform 0.5s;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+input.toggle-flip + label:after {
+  background-color: #00C176;
+  color:#fff;
+  content: attr(data-on);
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  -o-transition: -o-transform 0.4s;
+  transition: transform 0.4s;
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+input.toggle-flip:checked + label:before {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+input.toggle-flip:checked + label:after {
+  -webkit-transform: rotateX(0);
+  -moz-transform: rotateX(0);
+  -ms-transform: rotateX(0);
+  -o-transform: rotateX(0);
+  transform: rotateX(0);
+}
