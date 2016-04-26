@@ -10,7 +10,7 @@ html, body {
 }
 
 #map {
-  height: 80%;
+  height: 93%;
 }
 #floating-panel {
   position: absolute;
@@ -40,35 +40,9 @@ html, body {
   line-height: 56px;
 }
 
-// .btn-floating.btn-large {
-//   position: absolute;
-//   width: 55.5px;
-//   height: 55.5px;
-//   margin-left: 92%;
-//   margin-top: 50vh;
-// }
-// #form_fac {
-//   position: absolute;
-//   padding-left: 100px;
-//   margin-left: 0%;
-//   margin-top: 80vh;
-//   background-color: rgba(0, 128, 0, 0.66);
-//   z-index: 100;
-//   border-radius: 0;
-//   width: 100%;
-//   height: 5vh;
-//   color: white;
-// }
-
 #Track {
   color: white;
 }
-
-// body {
-//   display: flex;
-//   min-height: 100vh;
-//   flex-direction: column;
-// }
 
 main {
   flex: 1 0 auto;
@@ -91,17 +65,8 @@ main {
   color: white;
   top: -40vh;
   padding-top: 10px;
+  min-width: 120px;
 }
-
-// #track-check {
-//   position: absolute;
-//   border-radius: 50%;
-//   background-color: red;
-//   height: 80px;
-//   width: 80px;
-//   margin-top: -300px;
-//   margin-left: 600px;
-// }
 
 #navpos {
   position: absolute;
@@ -143,3 +108,6 @@ main {
   color: #ffffff;
 }
 
+#text-bottom {
+  text-align: -webkit-center;
+}

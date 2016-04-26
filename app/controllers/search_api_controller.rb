@@ -9,7 +9,7 @@ class SearchApiController < ApplicationController
         when "Washroom"
           @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Washroom%")
         when "Rink"
-          @parks =parks.joins(:facilities).where("facilities.displayname like ?", "%Rink%")
+          @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Rink%")
         when "Sports Area"
           @parks = @parks.joins(:facilities).where("facilities.displayname like ?", "%Sport Field%")
         when "Pool"

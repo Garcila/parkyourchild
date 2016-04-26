@@ -1,62 +1,66 @@
 
-	<div id="form_fac">
-	   <%= form_tag parks_path, method: :get, id:"form_items" do %>
+
+<div id="form_fac">
+ <%= form_tag parks_path, method: :get, id:"form_items" do %>
 <!-- 	   	<button type="button" id="nav-button" value="Track"></button>
-			<button type="button" id="nav-button" value="Washroom"></button>
-			<button type="button" id="nav-button" value="Sports"></button>
-			<button type="button" id="nav-button" value="Pool"></button>
-			<button type="button" id="nav-button" value="Dogpark"></button>
-			<button type="button" id="nav-button" value="Playground"></button> -->
-	   <p>
-				<%= check_box_tag :track, "Track", false, id: "Track", class:'checkbox_filter' %>		
-	   		<%= label_tag "Track", nil, class: "label_filter" %> 
-	   	</p>
-	    <p>
-				<%= check_box_tag :track, "Washroom", false, id: "Washroom", class:'checkbox_filter' %>
-	      <%= label_tag "Washroom", nil, class: "label_filter" %> 
-	    </p>
-	    <p>
-				<%= check_box_tag :track, "Sports Area", false, id: "Sports", class:'checkbox_filter' %>
-	      <%= label_tag "Sports" , nil, class: "label_filter" %> 
-	    </p>
-	    <p>
-				<%= check_box_tag :track, "Pool", false, id: "Pool", class:'checkbox_filter' %>
-	      <%= label_tag "Pool", nil, class: "label_filter" %> 
-	    </p>
-	    <p>
-				<%= check_box_tag :track, "Dog Playpark", false, id: "Dog", class:'checkbox_filter' %>
-	      <%= label_tag "Dog" , nil, class: "label_filter" %> 
-	     </p>
-	     <p> 
-				<%= check_box_tag :track, "Playground", false, id: "Playground", class:'checkbox_filter' %>
-	      <%= label_tag "Playground", nil, class: "label_filter" %>
-			</p>			
-	   <% end %>
+	<button type="button" id="nav-button" value="Washroom"></button>
+	<button type="button" id="nav-button" value="Sports"></button>
+	<button type="button" id="nav-button" value="Pool"></button>
+	<button type="button" id="nav-button" value="Dogpark"></button>
+	<button type="button" id="nav-button" value="Playground"></button> -->
+
+  <div class="checkbox-circle">
+		<%= check_box_tag :track, "Track", false, id: "Track", class:'checkbox_filter'%>		
+ 		<%= label_tag "Track", nil, class: "label_filter" %> 
+ 	</div>
+  <div>
+		<%= check_box_tag :track, "Washroom", false, id: "Washroom", class:'checkbox_filter' %>
+    <%= label_tag "Washroom", nil, class: "label_filter" %> 
+  </div>
+  <div>
+		<%= check_box_tag :track, "Sports Area", false, id: "Sports", class:'checkbox_filter' %>
+    <%= label_tag "Sports" , nil, class: "label_filter" %> 
+  </div>
+  <div>
+		<%= check_box_tag :track, "Pool", false, id: "Pool", class:'checkbox_filter' %>
+    <%= label_tag "Pool", nil, class: "label_filter" %> 
+  </div>
+  <div>
+		<%= check_box_tag :track, "Dog Playpark", false, id: "Dog", class:'checkbox_filter' %>
+    <%= label_tag "Dog" , nil, class: "label_filter" %> 
+  </div>
+  <div> 
+		<%= check_box_tag :track, "Playground", false, id: "Playground", class:'checkbox_filter' %>
+    <%= label_tag "Playground", nil, class: "label_filter" %>
+	</div>
+	<div> 
+		<%= check_box_tag :track, "Rink", false, id: "Rink", class:'checkbox_filter' %>
+    <%= label_tag "Rink", nil, class: "label_filter" %>
+	</div>
+  <% end %>
 </div>	
 
 <nav id="navpos">
-	Park Your Child
+	Park Your Child 
 </nav>
 
 
-	<div id="map"></div>
-	<div id="greenland"> 
-	</div>
+<div id="map"></div>
+<div id="greenland"> 	</div>
+
+<script>
+  window.data = <%= @parks.to_json.html_safe %>;
+  function initMap() {
+    parkMap.initialize('map', data);
+  }
+  $(document).ready(function() {
+    
+  });
+</script>
+
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOXLByKziSlHAOD4QCSxXgBuFbi_ImZfU&callback=initMap">
+</script>
 
 
-
-
-	<script>
-	  window.data = <%= @parks.to_json.html_safe %>;
-	  function initMap() {
-	    parkMap.initialize('map', data);
-	  }
-	  $(document).ready(function() {
-	    
-	  });
-	</script>
-
-	<script async defer
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOXLByKziSlHAOD4QCSxXgBuFbi_ImZfU&callback=initMap">
-	</script>
 
