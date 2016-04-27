@@ -74,6 +74,7 @@ main {
   top: 3.5vh;
   width: 100%;
   z-index: 10;
+  overflow: hidden;
   background-color: rgba(21, 124, 212, 0.89);
   height: 65px;
   font-size: -webkit-xxx-large;
@@ -126,13 +127,13 @@ img {
 }
 
 //Gradient in NavBar
-#white-box1 {
-  position: absolute;
-  height: 65px;
-  width: 100px;
-  background-color: rgba(51, 51, 51, 0.13);
-  margin-left: 60%;
-}
+// #white-box1 {
+//   position: absolute;
+//   height: 65px;
+//   width: 100px;
+//   background-color: rgba(51, 51, 51, 0.13);
+//   margin-left: 60%;
+// }
 
 #white-box {
   position: absolute;
@@ -140,7 +141,7 @@ img {
   width: 100%;
   background-color: rgba(51, 51, 51, 0.24);
   z-index: -1;
-  margin-left: 50%;
+  // margin-left: 50%;
   background: red; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left,rgba(255,0,0,0),rgba(255,0,0,1)); /*Safari 5.1-6*/
   background: -o-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,1)); /*Opera 11.1-12*/
