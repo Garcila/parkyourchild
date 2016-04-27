@@ -72,6 +72,7 @@ var parkMap = (function () {
 		  				map: map,
 		  				icon: icons[category],
 		  				title: dataPoint.name,
+
 		  				// draggable: true,
 		  				// animation: google.maps.Animation.DROP,
 		  				// title: dataPoint.phonenumber,
@@ -132,7 +133,7 @@ var parkMap = (function () {
 			});
 			
 			map = new google.maps.Map(document.getElementById(domID),{
-				center: {lat: 6.253076, lng: -75.568423},
+				center: {lat: 6.253076, lng: -79.395042},
 				zoom: 15,
 				mapTypeControlOptions: {
 					mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'parkmappark']
