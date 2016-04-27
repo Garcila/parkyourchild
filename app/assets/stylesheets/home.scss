@@ -61,7 +61,7 @@ main {
   z-index: 100;
   border-radius: 2%;
   width: 10%;
-  height: 230px;
+  height: 350px;
   color: white;
   top: -40vh;
   // padding-top: 10px;
@@ -79,7 +79,7 @@ main {
   font-size: -webkit-xxx-large;
   color: #ffffff;
   font-weight: bold;
-  padding-left: 30px;
+  padding-left: 50px;
   font-family: sans-serif;
   margin-right: auto;
   margin-left: auto;
@@ -125,6 +125,7 @@ img {
     z-index: 90;
 }
 
+//Gradient in NavBar
 #white-box1 {
   position: absolute;
   height: 65px;
@@ -136,68 +137,42 @@ img {
 #white-box {
   position: absolute;
   height: 65px;
-  width: 100px;
+  width: 100%;
   background-color: rgba(51, 51, 51, 0.24);
   z-index: -1;
   margin-left: 50%;
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left,rgba(255,0,0,0),rgba(255,0,0,1)); /*Safari 5.1-6*/
+  background: -o-linear-gradient(right,rgba(255,0,0,0),rgba(255,0,0,1)); /*Opera 11.1-12*/
+  background: -moz-linear-gradient(right,rgba(255,0,0,0),rgba(0, 51, 102, 1)); /*Fx 3.6-15*/
+  background: linear-gradient(to right, rgba(255,0,0,0), rgb(3, 33, 73)); /*Standard*/
 }
 
-#white-box2 {
-  position: absolute;
-  height: 65px;
-  width: 100px;
-  background-color:  rgba(51, 51, 51, 0.32);
-  margin-left: 70%;
-}
+// #white-box2 {
+//   position: absolute;
+//   height: 65px;
+//   width: 100px;
+//   background-color:  rgba(51, 51, 51, 0.32);
+//   margin-left: 70%;
+// }
 
-#white-box3 {
-  position: absolute;
-  height: 65px;
-  width: 100px;
-  background-color:   rgba(51, 51, 51, 0.38);
-  margin-left: 80%;
-}
+// #white-box3 {
+//   position: absolute;
+//   height: 65px;
+//   width: 100px;
+//   background-color:   rgba(51, 51, 51, 0.38);
+//   margin-left: 80%;
+// }
 
-#white-box4 {
-  position: absolute;
-  height: 65px;
-  width: 70px;
-  background-color:   rgba(51, 51, 51, 0.34);
-  margin-left: 90%;
-}
+// #white-box4 {
+//   position: absolute;
+//   height: 65px;
+//   width: 70px;
+//   background-color:   rgba(51, 51, 51, 0.34);
+//   margin-left: 90%;
+// }
 
-.social1 {
-  height: 40px                            ;
-  margin-top: -22px;
-  margin-left: 1300px;
-}
-
-.social2 {
-  height: 40px                            ;
-  margin-top: -22px;
-  margin-left: 1400px;
-}
-
-.social3 {
-  height: 40px;
-  margin-top: -22px;
-  margin-left: 1200px;
-}
-
-
-
-
-
-
-
-
-//First Button
-input.toggle {
-  position: absolute;
-  visibility: hidden;
-  
-}
-
+//Selection Bar
 input.toggle + label {
   display: block;
   position: relative;
@@ -212,7 +187,9 @@ input.toggle + label {
 }
 
 input.toggle-flip + label {
-  height: 25.5px;
+  height: 45px;
+  font-size: 20px;
+  padding-top: 5px;
 }
 input.toggle-flip + label:before, input.toggle-flip + label:after {
   position: absolute;
@@ -220,10 +197,11 @@ input.toggle-flip + label:before, input.toggle-flip + label:after {
   bottom: 0;
   right: 0;
   width: 100%;
-  height: 20px;
+  height: 40px;
   color: #fff;
   text-align: center;
   line-height: 20px;
+  padding-top: 11px
 }
 input.toggle-flip + label:before {
   background-color: rgba(29, 86, 134, 0.84);
@@ -271,4 +249,48 @@ input.toggle-flip:checked + label:after {
   -ms-transform: rotateX(0);
   -o-transform: rotateX(0);
   transform: rotateX(0);
+}
+input.toggle-flip + label:after {
+  background-color: #00C176;
+  color:#fff;
+  content: attr(data-on);
+  -webkit-transition: -webkit-transform 0.4s;
+  -moz-transition: -moz-transform 0.4s;
+  -o-transition: -o-transform 0.4s;
+  transition: transform 0.4s;
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  -ms-transform: rotateX(180deg);
+  -o-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -o-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+//Social links in Footer
+.social1 {
+  height: 40px;
+  margin-top: -22px;
+  margin-left: 1150px;
+}
+
+.social2 {
+  height: 40px;
+  margin-top: -22px;
+  margin-left: 1200px;
+}
+
+.social3 {
+  height: 40px;
+  margin-top: -22px;
+  margin-left: 1100px;
+}
+
+//Selection Bar
+input.toggle {
+  position: absolute;
+  visibility: hidden; 
 }
